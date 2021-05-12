@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Translator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+      
+  </head>
+  <body>
+    <div class="box">
+      <form action="index.php" method="post">
+        <div class="banner">
+          <h1>Traducteur Francais - Anglais</h1>
+        </div>
+        <p class="top-info">Concentre toi Karim, tu va y arriver LoL</p>
+        <div class="item">
+          <label for="word">Mot :</label>
+          <input type="text" id="word" name="word">
+          <div >
+                  <label for="direction">Sens de traduction :</label>
+                  <select id="direction" name="direction">
+                            <option value="toEnglish">Français vers Anglais</option>
+                            <option value="toFrench">Anglais vers Français</option>
+                  </select>
+        </div>
+        
+        <div class="btn-block">
+          <button type="submit" href="/">Traduire</button>
+        </div>
+      </form>
+    <div class='result'>
+    <!-- On affiche la traduction que si des données ont été effectivement envoyées -->
+        <?php if (! empty($_POST)): ?>
+            <section>
+                <h2>Résultat de la traduction</h2>
+                <?php if ($translation !== null): ?>
+                    <p>Le mot "<?= $_POST['word'] ?>" se traduit par "<?= $translation ?>".</p>
+                <?php else: ?>
+                    <p>Pas de traduction trouvée pour le mot "<?= $_POST['word'] ?>".</p>
+                <?php endif ?>
+            </section>
+        <?php endif ?>
+    </div>
+    </div>
+   </body>
+</html>
